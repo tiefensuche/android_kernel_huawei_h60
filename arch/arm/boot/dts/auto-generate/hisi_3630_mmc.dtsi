@@ -1,0 +1,41 @@
+/ {
+	aliases {
+		mshc0 = &dwmmc_0;
+		mshc1 = &dwmmc_1;
+		mshc2 = &dwmmc_2;
+	};
+
+	/* emmc */
+	dwmmc_0: dwmmc0@FF1FE000 {
+		compatible = "hisilicon,hi3630-dw-mshc";
+		reg = <0xFF1FE000 0x1000>;
+		interrupts = <0 118 4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clocks = <&clk_gate_mmc0>, <&clk_ppll0>;
+		clock-names = "ciu", "biu";
+	};
+
+	/* sd */
+	dwmmc_1: dwmmc1@FF17F000 {
+		compatible = "hisilicon,hi3630-dw-mshc";
+		reg = <0xFF17F000 0x1000>;
+		interrupts = <0 119 4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clocks = <&clk_gate_mmc1>, <&clk_ppll0>;
+		clock-names = "ciu", "biu";
+	};
+
+	/* SDIO */
+	dwmmc_2: dwmmc2@FF17E000 {
+		compatible = "hisilicon,hi3630-dw-mshc";
+		reg = <0xFF17E000 0x1000>;
+		interrupts = <0 120 4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clocks = <&clk_gate_mmc2>, <&clk_ppll0>;
+		clock-names = "ciu", "biu";
+	};
+};
+
